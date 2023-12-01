@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProjectService } from '../../services/project.service';
 
 @Component({
   selector: 'app-project',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrl: './project.component.css'
 })
 export class ProjectComponent {
+  public project: any = {};
 
+  constructor(
+    private projectService: ProjectService,
+
+  ) {}
+
+  save() {
+    this.projectService.Add(this.project);
+    this.project = {};
+
+  }
 }
